@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'rogfontfull'; /* This is the name you will use in your CSS */
+    src: url('./fonts/batmfa__.ttf') format('truetype'); /* RELATIVE PATH */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'rogfonthole'; /* This is the name you will use in your CSS */
+    src: url('./fonts/batmfo__.ttf') format('truetype'); /* RELATIVE PATH */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+::-webkit-scrollbar { 
+  width: 3px; 
+  height: 3px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #292929; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #757575; /* Dark gray thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+:root {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: aliceblue;
+  background-color: #5845ff2d;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  position: relative;
+  z-index: 1; /* React app above canvas */
+}
+
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* canvas behind everything */
+}
+
+a {
+  font-weight: 500;
+  color: #fafafa;
+  text-decoration: inherit;
+  transition: all 300ms ease;
+}
+
+a:hover {
+  color: #b4b4b5;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: top;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.menu-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color:#b8b7b7;
+  color:#292929;
+  cursor: pointer;
+  box-shadow: 0 0 6px #3c3838;
+  transition: all 100ms ease;
+  display:flex;
+}
+
+.menu-button.hidden {
+  display: none;
+}
+
+.menu-button.active {
+  opacity: 0.4;   
+  pointer-events: none; 
+}
+
+button:hover {
+  background-color:#ffffff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.menu {
+  margin: 0 auto; /* Sets top/bottom margin to 0 and left/right to auto */
+  display:flex;
+  flex-direction:row;
+  gap: 10px;
+  box-shadow: 0 0 3px #ffffff;
+  padding: 10px;
+  border-radius: 7px;
+  width: 46.3vw;
+  z-index:0;
+  font-family: rogfontfull;
+}
+
+.menu-logo {
+  padding-top: 1.5%;
+  padding-left: 3%;
+  padding-right: 3%;
+  font-family: rogfontfull;
+}
+
+.logo-app {
+  border-radius: 10px;
+  transition: all 300ms ease;
+  box-shadow: 0 0 2px #bebdbd;
+}
+
+.logo-app:hover{
+  transform:scale(1.02);
+  box-shadow: 0 0 4px #bebdbd;
+}

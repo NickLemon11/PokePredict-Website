@@ -1,0 +1,366 @@
+/* ---------------------- OTHERS --------------------- */
+.top-buttons{
+    margin-top: 1%;
+    display:flex;
+    gap: 1vw;
+}
+
+/* ---------------------- MAIN CONTAINER --------------------- */
+#play-content {
+    background-color: rgba(207, 221, 253, 0.585);
+    width: 40vw;
+    height: 39vh;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 12px;
+    gap: 0.8vw;
+}
+
+/* ---------------------- Pokemon Select --------------------- */
+.top-section {
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10%;
+    padding: 6px;
+    border-radius: 10px;
+    transition: all 500ms ease
+}
+
+.show {
+    margin-top: -1%;
+    display:block;
+}
+
+.hide {
+    display:none;
+}
+
+/* TOP SECTION (input + button) */
+.top-section.blue {
+    background-color: rgba(79, 138, 255, 0.971); 
+}
+
+.top-section.red {
+    background-color: rgba(255, 82, 79, 0.971);
+}
+
+.left-side {
+    background-color: rgba(255, 255, 255, 0.71);
+    box-shadow: 0 0 5px #000;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.7vh;
+    border-radius: 10px;
+    height: 36vh;
+    width: 20vw;
+}
+
+.container-moves {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6vw;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.middle-side {
+    background-color: rgba(255, 255, 255, 0.71);
+    box-shadow: 0 0 5px #000;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5vw;
+    gap: 14px;
+    border-radius: 10px;
+    height: 37vh;
+}
+
+/* INPUTS */
+.input-pokemon,
+.input-type,
+.input-move {
+    background-color: #131313;
+    color: #fff;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    padding: 8px;
+    transition: all 0.2s ease;
+}
+
+.input-pokemon {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.input-type {
+    text-align: center;
+    width: 13.88vw;
+    height: 3vh; 
+}
+
+.input-move {
+    font-size: 0.9rem;
+    height: 50%;
+    width: 120%;
+}
+
+input::placeholder {
+    color: #667;
+}
+
+input:focus {
+    background-color: #292929;
+}
+
+/* IMAGE WRAPPER */
+.image-wrapper {
+    margin-top: -2%;
+    background-color: #131313;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 33vh;
+    width: 15.2vw;
+}
+
+.image-pokemon {
+    height: 70%;
+    object-fit: contain;
+}
+
+.stats-content {
+    background-color: rgba(255, 255, 255, 0.71);
+    box-shadow: 0 0 6px #000;
+    display:flex;
+    flex-direction: column;
+    border-radius: 6px;
+    width: 20%;
+    padding: 8px;
+}
+
+.individual-stat {
+    color: #1c1c1c;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* LEFT + RIGHT ALIGN */
+    align-items: center;
+    padding: 11px;
+    height: 2.65vh;
+    border-radius: 8px;
+    transition: all 150ms ease;
+    user-select: none;
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+.individual-stat:hover {
+    cursor: pointer;
+    background-color: rgb(246, 244, 244);
+}
+
+/* ---------------------- DROP DOWN --------------------- */
+.dropdown {
+    position: absolute;
+    top: 96%;
+    left: 8%;
+    background: #1c1c1c;
+    width: 118%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 10;
+}
+
+.dropdown-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.dropdown-item:hover {
+    background: #333;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* ---------------------- PLAY PAGE --------------------- */
+
+#player-viewer {
+    margin-top: 1%;
+    background-color: rgba(79, 138, 255, 0.971); 
+    border-color:#80c1ff;
+}
+
+#opponent-viewer {
+    margin-top: 1%;
+    background-color: rgba(255, 82, 79, 0.971);
+    border-color:#ff94af;
+}
+
+.pokemon-info {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+#pok-spacer {
+    margin-top: -5%;
+}
+
+/* --------------------- PREDICTION MENU ------------------- */
+.prediction-content {
+    margin-top: 2%;
+    width: 83.8vw;
+    background-color: rgba(207, 221, 253, 0.585);
+    padding: 1vw;
+    border-radius: 5px;
+}
+
+#page-viewer {
+    margin-top: 1%;
+}
+
+#input-look {
+    width: 25%;
+    height: 4vh;
+    margin-bottom: 1%;
+}
+
+#row {
+    display:flex;
+    flex-direction: row;
+    gap: 53vw;
+}
+
+#col {
+    display:flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.prediction {
+    border-radius: 4px;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    height: 10vh;
+    color:#1c1c1c;
+    background-color: #d8d8d8b9;
+    box-shadow: 0 0 3px #000;
+}
+
+#input-active {
+    width: 14vw;
+}
+
+#input-active-opp {
+    width: 14vw;
+    margin-bottom: 1%;
+}
+
+#row-buttons {
+    display:flex;
+    flex-direction: row;
+    gap: 0.5vw;
+}
+
+#terrain-text {
+    margin-left: 2%;
+    margin-top: 0.3%;
+    height: 0.3vh;
+    padding:0px;
+}
+
+#calculate-button {
+    height: 7vh;
+}
+
+/* setting hover colour for terrain and weather buttons */
+#terrain-electric:hover {
+    background-color:#fcf484;
+}
+
+#terrain-grassy:hover {
+    background-color:#b0fc84;
+}
+
+#terrain-misty:hover {
+    background-color:#ffacff;
+}
+
+#terrain-psychic:hover {
+    background-color:#fc84d8;
+}
+
+#weather-sun:hover {
+    background-color:#ffd67e;
+}
+
+#weather-rain:hover {
+    background-color:#50a8fa;
+}
+
+#weather-snow:hover {
+    background-color:#bee0ff;
+}
+
+#weather-sand:hover {
+    background-color:#ffb168;
+}
+
+/* setting active colours for terrain and weather buttons */
+#terrain-none-active {
+    background-color:#ffffff;
+}
+
+#terrain-electric-active {
+    background-color:#fcf484;
+}
+
+#terrain-grassy-active {
+    background-color:#b0fc84;
+}
+
+#terrain-misty-active {
+    background-color:#ffacff;
+}
+
+#terrain-psychic-active {
+    background-color:#fc84d8;
+}
+
+#weather-none-active {
+    background-color:#ffffff;
+}
+
+#weather-sun-active {
+    background-color:#ffd67e;
+}
+
+#weather-rain-active {
+    background-color:#50a8fa;
+}
+
+#weather-snow-active {
+    background-color:#bee0ff;
+}
+
+#weather-sand-active {
+    background-color:#ffb168;
+}
+
+
