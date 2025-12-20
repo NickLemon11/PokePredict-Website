@@ -1,8 +1,9 @@
 #guide {
     background-color: rgba(255, 255, 255, 0.258);
-    width: 210%;
+    width: 63vw;
     height: 75%;
-    margin-left: -60%;
     margin-top: 4%;
     box-shadow: 0 0 7px #000000;
+    text-align:left;
+    line-height: 5vh;
 }
