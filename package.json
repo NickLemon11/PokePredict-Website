@@ -1,6 +1,6 @@
 {
   "name": "pokepredict",
-  "homepage": "https://nicklemon11.github.io/PokePredict/",
+  "homepage": "https://nicklemon11.github.io/PokePredict-Website/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeplpy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
