@@ -1,8 +1,22 @@
 #guide {
     background-color: rgba(255, 255, 255, 0.258);
-    width: 210%;
-    height: 75%;
-    margin-left: -60%;
+    width: 63vw;
+    height: 89%;
     margin-top: 4%;
     box-shadow: 0 0 7px #000000;
+    text-align:left;
+    line-height: 4vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.guideImage {
+    width: 30vw;
+    border-radius: 6px;
+    border-color:rgb(215, 215, 214);
+    border-width: 2px;
+    border-style:solid;
+    margin-bottom: 2%;
+    margin-top: 0.5%;
 }
