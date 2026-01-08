@@ -1,9 +1,15 @@
 import { useState } from "react";
 
-export function MoveInput({ index, allMoves, activeIndex, setActiveIndex }) {
+export function MoveInput({ //props
+  index,
+  allMoves,
+  activeIndex,
+  setActiveIndex,
+  onSelect   
+}) {
   const [query, setQuery] = useState("");
 
-  const filtered = 
+  const filtered =
     activeIndex === index && query.length > 0
       ? allMoves
           .filter(m => m.startsWith(query.toLowerCase()))
@@ -13,7 +19,7 @@ export function MoveInput({ index, allMoves, activeIndex, setActiveIndex }) {
   const handleChange = (e) => {
     const val = e.target.value.toLowerCase();
     setQuery(val);
-    setActiveIndex(index); // open THIS dropdown and close others
+    setActiveIndex(index);
   };
 
   return (
@@ -34,7 +40,8 @@ export function MoveInput({ index, allMoves, activeIndex, setActiveIndex }) {
               className="dropdown-item"
               onClick={() => {
                 setQuery(move);
-                setActiveIndex(null); // close all dropdowns
+                setActiveIndex(null);
+                onSelect?.(move); //call back
               }}
             >
               {move}

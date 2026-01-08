@@ -21,6 +21,21 @@
     gap: 0.8vw;
 }
 
+#play-content-ready {
+    background-color: rgba(147, 255, 179, 0.747);
+    width: 40vw;
+    height: 39vh;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 12px;
+    gap: 0.8vw;
+}
+
 /* ---------------------- Pokemon Select --------------------- */
 .top-section {
     width: 95%;
@@ -143,6 +158,17 @@ input:focus {
     object-fit: contain;
 }
 
+#ready {
+    margin-top: -3%;
+    background-color: #7cff9dd5;
+    height: 2vh;
+    width: 15vw;
+}
+
+#ready:hover {
+    background-color: #9afcbf;
+}
+
 .stats-content {
     background-color: rgba(255, 255, 255, 0.71);
     box-shadow: 0 0 6px #000;
@@ -202,14 +228,27 @@ input:focus {
 #player-viewer {
     margin-top: 1%;
     background-color: rgba(79, 138, 255, 0.971); 
-    border-color:#80c1ff;
+    height: 7vh;
 }
 
 #opponent-viewer {
     margin-top: 1%;
-    background-color: rgba(255, 82, 79, 0.971);
-    border-color:#ff94af;
+    background-color: rgba(255, 79, 123, 0.971); 
+    height: 7vh;
 }
+
+#player-viewer:hover {
+    margin-top: 1%;
+    background-color: rgba(138, 177, 253, 0.971); 
+    height: 7vh;
+}
+
+#opponent-viewer:hover {
+    margin-top: 1%;
+    background-color: rgba(250, 136, 164, 0.971); 
+    height: 7vh;
+}
+
 
 .pokemon-info {
     display: flex;
@@ -238,8 +277,10 @@ input:focus {
     width: 15vw;
     height: 4vh;
     margin-bottom: 0%;
+    color:#1c1c1c;
+    background-color: #d8d8d8b9;
+    border-color:#686767;
 }
-
 
 #row {
     display:flex;
@@ -261,15 +302,25 @@ input:focus {
     height: 10vh;
     color:#1c1c1c;
     background-color: #d8d8d8b9;
-    box-shadow: 0 0 3px #000;
+    box-shadow: 0 0 1px #000;
 }
 
 #input-active {
-    width: 14vw;
+    width: 15.2vw;
+    height: 5.6vh;
+    margin-top: 0.4%;
+    color:#1c1c1c;
+    background-color: #d8d8d8b9;
+    border-style: none;
 }
 
 #input-active-opp {
-    width: 14vw;
+    width: 15.2vw;
+    height: 5.6vh;
+    margin-top: 0.4%;
+    color:#1c1c1c;
+    background-color: #d8d8d8b9;
+    border-style: none;
 }
 
 #row-buttons {
@@ -279,7 +330,7 @@ input:focus {
     gap: 0.5vw;
     padding: 5px;
     border-radius: 5px;
-    background-color: #1c1c1c;
+    background-color: #d8d8d8b9;
     width: 41vw;
 }
 
@@ -288,7 +339,7 @@ input:focus {
     flex-direction: row;
     gap: 0.5vw;
     height: 6vh;
-    background-color: rgba(79, 138, 255, 0.971); 
+    background-color: rgba(165, 195, 255, 0.971); 
     padding: 5px;
     border-radius: 6px;
 }
@@ -298,19 +349,31 @@ input:focus {
     flex-direction: row;
     gap: 0.5vw;
     height: 6vh;
-     background-color: rgba(255, 82, 79, 0.971);
+    background-color: rgba(250, 172, 171, 0.971);
     padding: 5px;
     border-radius: 6px;
 }
 
-#statuses-player {
+.statuses-player {
     display: flex;
     flex-direction: row;
+    color:#1c1c1c;
+    background-color: #d8d8d8b9;
+    border-style: none;
+    border-radius: 5px;
+    height: 92%;
+    margin-top: 0.4%;
 }
 
-#statuses-opp {
+.statuses-opp {
     display: flex;
     flex-direction: row;
+    color:#1c1c1c;
+    background-color: #d8d8d8b9;
+    border-style: none;
+    border-radius: 5px;
+    height: 92%;
+    margin-top: 0.4%;
 }
 
 #terrain-text {
@@ -318,7 +381,7 @@ input:focus {
     margin-top: 1.3%;
     height: 0.3vh;
     padding:0px;
-    color:#ffffff;
+    color:#292929;
 }
 
 #weather-text {
@@ -326,7 +389,7 @@ input:focus {
     margin-top: 1.2%;
     height: 0.3vh;
     padding:0px;
-    color:#ffffff;
+    color:#292929;
 }
 
 #calculate-button {
@@ -334,10 +397,19 @@ input:focus {
     margin-left: 7%;
 }
 
+#calculate-button:hover {
+    transform: scale(1.03);
+    background-color: #cfffb3;
+}
+
 #next-button {
     width: 7.5vw;
-    margin-left: -0.8%;
+    margin-left: -0.2%;
     height: 7vh;
+}
+
+#next-button:hover {
+    transform: scale(1.03);
 }
 
 /* setting hover colour for terrain and weather buttons */
@@ -413,5 +485,3 @@ input:focus {
 #weather-sand-active {
     background-color:#ffb168;
 }
-
-

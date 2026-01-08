@@ -30,8 +30,8 @@ class Particle {
     this.x = Math.random() * w;
     this.y = Math.random() * h;
     this.size = Math.random() * 2 + 0.5;
-    this.speedX = (Math.random() - 0.5) * 0.5;
-    this.speedY = (Math.random() - 0.5) * 0.6;
+    this.speedX = (Math.random() - 0.5) * 0.8;
+    this.speedY = (Math.random() - 0.5) * 0.9;
   }
 
   update() {

@@ -86,7 +86,7 @@ h1 {
   background-color:#b8b7b7;
   color:#292929;
   cursor: pointer;
-  box-shadow: 0 0 6px #3c3838;
+  box-shadow: 0 0 3px #3c3838;
   transition: all 100ms ease;
   display:flex;
 }
