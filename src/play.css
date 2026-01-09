@@ -249,7 +249,6 @@ input:focus {
     height: 7vh;
 }
 
-
 .pokemon-info {
     display: flex;
     flex-direction: row;

@@ -5,7 +5,8 @@ export function MoveInput({ //props
   allMoves,
   activeIndex,
   setActiveIndex,
-  onSelect   
+  onSelect,
+  locked   
 }) {
   const [query, setQuery] = useState("");
 
@@ -27,8 +28,9 @@ export function MoveInput({ //props
       <input
         value={query}
         onChange={handleChange}
-        onFocus={() => setActiveIndex(index)}
+        onFocus={() => !locked && setActiveIndex(index)}
         placeholder="Enter move"
+        disabled={locked}
         className="input-move"
       />
 

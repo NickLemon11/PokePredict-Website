@@ -16,7 +16,7 @@ export function PokemonSelect( {player, onAction} ) {
   const [selectedMoves, setSelectedMoves] = useState([]);
   const [ready, setReady] = useState("n");
 
-  let increment = 3;
+  let increment = 5;
 
   const getPokemonDetails = async (name) => { //fetch data from pokeapi based the passed in name from the user input
     try {
@@ -45,7 +45,9 @@ export function PokemonSelect( {player, onAction} ) {
   const onEnter = (event) => {
     if (event.key === 'Enter') {
       getPokemonDetails(inputName);
-    }
+    }   
+  setMaxHp((2 * hp) + 204);
+  console.log("HP: " + hp, "MAX HP: " + maxHp)
   }
 
   return ( //pokemon card component
@@ -55,14 +57,14 @@ export function PokemonSelect( {player, onAction} ) {
   {/* LEFT SIDE - SEARCH ABOVE, MOVES BELOW */}
   <div className="left-side">
     <div className={`top-section ${player === "user" ? "blue" : "red"}`}>
-      <input className="input-pokemon" placeholder="Pokemon Name" value={inputName} onChange={(event) => setInputName(event.target.value)} onKeyDown={onEnter}/>
+      <input disabled={ready === "y"} className="input-pokemon" placeholder="Pokemon Name" value={inputName} onChange={(event) => setInputName(event.target.value)} onKeyDown={onEnter}/>
     </div>
 
     <div className="container-moves">
-      <MoveInput index={0} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
-      <MoveInput index={1} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
-      <MoveInput index={2} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
-      <MoveInput index={3} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
+      <MoveInput locked={ready === "y"} index={0} value={selectedMoves[0] || ""} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => ready === "n" && setSelectedMoves(prevState => [...prevState, move])}/>
+      <MoveInput locked={ready === "y"} index={1} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
+      <MoveInput locked={ready === "y"} index={2} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
+      <MoveInput locked={ready === "y"} index={3} allMoves={moves} activeIndex={activeMoveIndex} setActiveIndex={setActiveMoveIndex} onSelect={(move) => setSelectedMoves(prevState => [...prevState, move])}/>
     </div>
   </div>
 
@@ -76,7 +78,7 @@ export function PokemonSelect( {player, onAction} ) {
     <button
   className="menu-button"
   id="ready"
-  onClick={() =>
+  onClick={() => {if (ready === "n")
     {onAction({
       name: inputName,
       hp: hp,
@@ -87,9 +89,9 @@ export function PokemonSelect( {player, onAction} ) {
       spdefense: specialDefense,
       maxspeed: speed,
       type1: type[0].trim(),
-      type2: type[1].trim(),
+      type2: type.length > 1 ? type[1].trim() : null,
       moves: selectedMoves,
-    }); readyUp();}
+    }); readyUp();}}
   }>
 </button>
 
@@ -97,12 +99,12 @@ export function PokemonSelect( {player, onAction} ) {
 
   {/* BOTTOM - STATS*/}
   <div className="stats-content">
-    <div className="individual-stat" onClick={() => setHp(hp + increment)} onContextMenu={(e) => {e.preventDefault(); hp > 1 ? setHp(hp - increment) : null;}}><h5>Hp</h5> <h5 className="stat">{hp}</h5></div>
-    <div className="individual-stat" onClick={() => setAttack(attack + increment)} onContextMenu={(e) => {e.preventDefault(); attack > 1 ? setAttack(attack - increment) : null;}}><h5>Atk</h5> <h5 className="stat">{attack}</h5></div>
-    <div className="individual-stat" onClick={() => setDefense(defense + increment)} onContextMenu={(e) => {e.preventDefault(); defense > 1 ? setDefense(defense - increment) : null;}}><h5>Def</h5> <h5 className="stat">{defense}</h5></div>
-    <div className="individual-stat" onClick={() => setSpecialAttack(specialAttack + increment)} onContextMenu={(e) => {e.preventDefault(); specialAttack > 1 ? setSpecialAttack(specialAttack - increment) : null;}}><h5>SpA</h5> <h5 className="stat">{specialAttack}</h5></div>
-    <div className="individual-stat" onClick={() => setSpecialDefense(specialDefense + increment)} onContextMenu={(e) => {e.preventDefault(); specialDefense > 1 ? setSpecialDefense(specialDefense - increment) : null;}}><h5>SpD</h5> <h5 className="stat">{specialDefense}</h5></div>
-    <div className="individual-stat" onClick={() => setSpeed(speed + increment)} onContextMenu={(e) => {e.preventDefault(); speed > 1 ? setSpeed(speed - increment) : null;}}><h5>Spe</h5> <h5 className="stat">{speed}</h5></div>
+    <div className="individual-stat" onClick={() => ready === "n" && setHp(hp + increment)} onContextMenu={(e) => {e.preventDefault(); ready === "n" && hp > 1 && setHp(hp - increment);}}><h5>Hp</h5> <h5 className="stat">{hp}</h5></div>
+    <div className="individual-stat" onClick={() => ready === "n" && setAttack(attack + increment)} onContextMenu={(e) => {e.preventDefault(); ready === "n" && attack > 1 && setAttack(attack - increment);}}><h5>Atk</h5> <h5 className="stat">{attack}</h5></div>
+    <div className="individual-stat" onClick={() => ready === "n" && setDefense(defense + increment)} onContextMenu={(e) => {e.preventDefault(); ready === "n" && defense > 1 && setDefense(defense - increment);}}><h5>Def</h5> <h5 className="stat">{defense}</h5></div>
+    <div className="individual-stat" onClick={() => ready === "n" && setSpecialAttack(specialAttack + increment)} onContextMenu={(e) => {e.preventDefault(); ready === "n" && specialAttack > 1 && setSpecialAttack(specialAttack - increment);}}><h5>SpA</h5> <h5 className="stat">{specialAttack}</h5></div>
+    <div className="individual-stat" onClick={() => ready === "n" && setSpecialDefense(specialDefense + increment)} onContextMenu={(e) => {e.preventDefault(); ready === "n" && specialDefense > 1 && setSpecialDefense(specialDefense - increment);}}><h5>SpD</h5> <h5 className="stat">{specialDefense}</h5></div>
+    <div className="individual-stat" onClick={() => ready === "n" && setSpeed(speed + increment)} onContextMenu={(e) => {e.preventDefault(); ready === "n" && speed > 1 && setSpeed(speed - increment);}}><h5>Spe</h5> <h5 className="stat">{speed}</h5></div>
   </div>
   </div>
   </>
