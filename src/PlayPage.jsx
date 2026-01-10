@@ -9,6 +9,7 @@ export default function Play() {
   const [oppActive, setOppActive] = useState("");
   const [lookTurns, setLookTurns] = useState(0);
   const [prediction, setPrediction] = useState("...");
+  const [opponentSwitchPok, setOpponentSwitchPok] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
   const [activeTerrain, setActiveTerrain] = useState("None");
   const [activeWeather, setActiveWeather] = useState("None");
@@ -26,8 +27,8 @@ export default function Play() {
     }
     console.log("Sending the following battle data to the backend...");
     console.log("Look Ahead Turns:", lookTurns + ", " + valid);
-    console.log("Your Active Pokémon:", userActive + ", Condition: " + playerStatus);
-    console.log("Opponent's Active Pokémon:", oppActive + ", Condition: " + oppStatus);
+    console.log("Your Active Pokémon:", userActive + ", Status: " + playerStatus);
+    console.log("Opponent's Active Pokémon:", oppActive + ", Status: " + oppStatus);
     console.log("Terrain:", activeTerrain);
     console.log("Weather:", activeWeather);
 
@@ -64,7 +65,11 @@ export default function Play() {
   };
 
   const opponentInput = () => {
-    setOpponentMove(prompt("What did the opponent do?"));
+    if ((prompt("Did the opponent switch Pokémon?").toLowerCase().charAt(0)) === "n") {
+      setOpponentMove(prompt("What move did their " + oppActive + " do?").toLowerCase());
+    } else {
+      setOpponentSwitchPok(prompt("What Pokémon did they switch into from " + oppTeam[0].name + "?        If it is a new Pokémon, please input it in the team viewer.").toLowerCase());
+    }
   };
 
   return (
@@ -74,8 +79,7 @@ export default function Play() {
         <button className="menu-button" id="page-viewer"
           onClick={() =>
             setViewer(viewer === "team" ? "other" : "team")
-          }
-        >
+          }>
           Switch View
         </button>
 
@@ -89,7 +93,7 @@ export default function Play() {
           </button>
         )}
       </div>
-
+    <div className={viewer === "team" ? "pokemon-select-container" : ""}>
       {/*  TEAM VIEW (stays rendered but in the background so states are not lost) */}
       <div className={viewer === "team" ? "show" : "hide"}>
         <div className={player === "Your Team" ? "show" : "hide"}>
@@ -119,10 +123,10 @@ export default function Play() {
           <div className="pokemon-info" id="pok-spacer">
             <PokemonSelect player="opponent" onAction={handleOppTeamChange} />
             <PokemonSelect player="opponent" onAction={handleOppTeamChange} />
-          </div>
+          </div>   
         </div>
       </div>
-
+    </div>
       {/* PREDICTION VIEW (ORIGINAL LAYOUT) */}
       <div className={viewer === "other" ? "show" : "hide"}>
         <div className="prediction-content">

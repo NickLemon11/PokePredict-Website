@@ -51,8 +51,8 @@ export function PokemonSelect( {player, onAction} ) {
   }
 
   return ( //pokemon card component
-  < >
-<div className="main-content" id={ready == "n" ? "play-content" : "play-content-ready"}>
+  <>
+  <div className="main-content" id={ready == "n" ? "play-content" : "play-content-ready"}>
 
   {/* LEFT SIDE - SEARCH ABOVE, MOVES BELOW */}
   <div className="left-side">

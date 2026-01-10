@@ -1,6 +1,6 @@
 /* ---------------------- OTHERS --------------------- */
 .top-buttons{
-    margin-top: 1%;
+    margin-top: 0%;
     display:flex;
     gap: 1vw;
 }
@@ -19,6 +19,18 @@
     align-items: flex-start;
     border-radius: 12px;
     gap: 0.8vw;
+}
+
+.pokemon-select-container{
+    margin-top: 1%;
+    background-color: #bff8ff65;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90vw;
+}
+
+.main-content {
+    background-color: #9afcbf;
 }
 
 #play-content-ready {
